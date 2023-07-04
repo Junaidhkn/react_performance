@@ -52,7 +52,7 @@ const Home = () => {
       <div className="centered background_shady">
          <ul className="centered">
             {routes.map( ( route, index ) => (
-               <Link key={index} to={route.path}> <li> {route.name} </li> </Link>
+               <Link key={index} to={route.path}> <li className="items"> {route.name} </li> </Link>
             ) )}
          </ul>
       </div>

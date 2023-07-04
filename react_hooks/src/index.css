@@ -1,4 +1,38 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  color: beige;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+}
+
+.centered {
+  padding: 30px;
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.items {
+  color: bisque;
+  padding: 25px 55px;
+  background-color: rgb(90, 104, 130);
+  text-align: center;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.items:hover {
+  background-color: rgb(20, 20, 21);
+  color: rgb(233, 124, 124);
 }
