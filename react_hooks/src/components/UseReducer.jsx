@@ -12,6 +12,11 @@ const initialTodos = [
       title: "Todo 2",
       complete: false,
    },
+   {
+      id: 3,
+      title: "Todo 3",
+      complete: true,
+   },
 ];
 
 const reducer = ( state, action ) => {
