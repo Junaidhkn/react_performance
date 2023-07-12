@@ -1,11 +1,14 @@
-const NewItem = ({ newItemName, setNewItemName, addItem }) => {
+import { useState } from "react";
+
+const NewItem = ( { addItem } ) => {
+  const [newItemName, setNewItemName] = useState( '' );
   return (
     <form
       id="new-item"
-      onSubmit={(e) => {
+      onSubmit={( e ) => {
         e.preventDefault();
-        addItem(newItemName);
-        setNewItemName('');
+        addItem( newItemName );
+        setNewItemName( '' );
       }}
     >
       <label htmlFor="new-item-name" className="font-semibold">
@@ -19,7 +22,7 @@ const NewItem = ({ newItemName, setNewItemName, addItem }) => {
           placeholder="New Item"
           value={newItemName}
           autoFocus
-          onChange={(event) => setNewItemName(event.target.value)}
+          onChange={( event ) => setNewItemName( event.target.value )}
         />
         <button
           id="new-item-submit"
