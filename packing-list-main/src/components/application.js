@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   createItem,
   filterItems,
@@ -15,10 +15,10 @@ const Application = () => {
   const [items, setItems] = useState( () => getInitialItems() );
 
 
-  const add = ( name ) => {
+  const add = useCallback( ( name ) => {
     const item = createItem( name );
     setItems( [...items, item] );
-  };
+  }, [items] );
 
   const update = ( id, updates ) => {
     setItems( updateItem( items, id, updates ) );
