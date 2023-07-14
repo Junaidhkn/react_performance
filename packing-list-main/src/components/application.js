@@ -20,20 +20,20 @@ const Application = () => {
     setItems( [...items, item] );
   }, [items] );
 
-  const update = ( id, updates ) => {
+  const update = useCallback( ( id, updates ) => {
     setItems( updateItem( items, id, updates ) );
-  };
+  }, [items] );
 
-  const remove = ( id ) => {
+  const remove = useCallback( ( id ) => {
     setItems( removeItem( items, id ) );
-  };
+  }, [items] );
 
   const unpackedItems = filterItems( items, { packed: false } );
   const packedItems = filterItems( items, { packed: true } );
 
-  const markAllAsUnpacked = () => {
+  const markAllAsUnpacked = useCallback( () => {
     return setItems( items.map( ( item ) => ( { ...item, packed: false } ) ) );
-  };
+  }, [items] );
 
   return (
     <main className="flex flex-col gap-8 p-8 mx-auto lg:max-w-4xl">
