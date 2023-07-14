@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { filterItems } from '../lib/items';
 import { toKebabCase } from '../lib/kebab-case';
 import Item from './item';
 
-const EmptyState = ({ id, items, filteredItems }) => (
+const EmptyState = ( { id, items, filteredItems } ) => (
   <p id={id} className="text-primary-400">
     (No items.)
   </p>
 );
 
-const ItemList = ({ title = 'Items', items, update, remove }) => {
-  const [filter, setFilter] = useState('');
-  const id = toKebabCase(title);
+const ItemList = ( { title = 'Items', items, update, remove } ) => {
+  const [filter, setFilter] = useState( '' );
+  const id = toKebabCase( title );
 
-  const filteredItems = filterItems(items, { name: filter });
+  const filteredItems = filterItems( items, { name: filter } );
   const isEmpty = !items.length;
 
   return (
@@ -26,13 +26,13 @@ const ItemList = ({ title = 'Items', items, update, remove }) => {
           placeholder="Filter"
           className="w-full py-1 my-2"
           value={filter}
-          onChange={(event) => setFilter(event.target.value)}
+          onChange={( event ) => setFilter( event.target.value )}
         />
       </header>
       <ul className="flex flex-col gap-2">
-        {filteredItems.map((item) => (
+        {filteredItems.map( ( item ) => (
           <Item key={item.id} item={item} update={update} remove={remove} />
-        ))}
+        ) )}
       </ul>
       {isEmpty && (
         <EmptyState
@@ -45,4 +45,4 @@ const ItemList = ({ title = 'Items', items, update, remove }) => {
   );
 };
 
-export default ItemList;
+export default memo( ItemList );
